@@ -1,40 +1,37 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Terminal from "@/components/terminal/Terminal";
 import LeftPanel from "@/components/terminal/LeftPanel";
-import MobileToggle from "@/components/terminal/MobileToggle";
-import MobileCardView from "@/components/terminal/MobileCardView";
-import { useIsMobile } from "@/hooks/use-mobile";
+import AppFrame from "@/components/layout/AppFrame";
 
 export default function Home() {
+  const terminalRef = useRef<{ runCommand: (cmd: string) => void }>(null);
   const [activeCommand, setActiveCommand] = useState<string | null>(null);
-  const [isTerminalView, setIsTerminalView] = useState(true);
-  const isMobile = useIsMobile();
-
-  if (isMobile) {
-    return (
-      <div className="h-screen bg-background overflow-hidden">
-        {isTerminalView ? (
-          <Terminal onCommandChange={setActiveCommand} />
-        ) : (
-          <MobileCardView />
-        )}
-        <MobileToggle
-          isTerminalView={isTerminalView}
-          onToggle={() => setIsTerminalView(!isTerminalView)}
-        />
-      </div>
-    );
-  }
 
   return (
-    <div className="h-screen bg-background flex overflow-hidden">
-      <div className="w-2/5 border-r border-border/30 bg-card/20">
-        <LeftPanel activeCommand={activeCommand} />
-      </div>
+    <AppFrame
+      onContactClick={() => {
+        terminalRef.current?.runCommand("contact");
+      }}
+    >
+      <div className="h-full flex">
 
-      <div className="flex-1 p-4">
-        <Terminal onCommandChange={setActiveCommand} />
+        {/* LEFT */}
+        <div className="w-[38%] flex justify-center">
+          <LeftPanel />
+        </div>
+
+        {/* DIVIDER */}
+        <div className="w-px bg-green-500/40" />
+
+        {/* TERMINAL */}
+        <div className="flex-1 h-full">
+          <Terminal
+            ref={terminalRef}
+            onCommandChange={setActiveCommand}
+          />
+        </div>
+
       </div>
-    </div>
+    </AppFrame>
   );
 }

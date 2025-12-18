@@ -1,0 +1,26 @@
+@keyframes swing {
+  0%   { transform: rotate(16deg); }
+  20%  { transform: rotate(-12deg); }
+  40%  { transform: rotate(8deg); }
+  60%  { transform: rotate(-4deg); }
+  80%  { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-160px) rotate(16deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.pendulum-wrapper {
+  transform-origin: 50% 0%;
+  animation:
+    drop 1s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    swing 4s ease-out 1s forwards;
+}

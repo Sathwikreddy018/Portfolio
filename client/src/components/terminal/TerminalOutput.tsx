@@ -32,9 +32,12 @@ function CopyButton({ text }: { text: string }) {
       size="icon"
       onClick={handleCopy}
       className="h-6 w-6"
-      data-testid={`button-copy-${text}`}
     >
-      {copied ? <Check className="h-3 w-3 text-primary" /> : <Copy className="h-3 w-3" />}
+      {copied ? (
+        <Check className="h-3 w-3 text-primary" />
+      ) : (
+        <Copy className="h-3 w-3" />
+      )}
     </Button>
   );
 }
@@ -73,12 +76,20 @@ function AboutOutput() {
 
 function ProjectsOutput() {
   return (
+    
     <div className="space-y-6">
       <p className="text-primary font-bold">Featured Projects:</p>
       {projectsData.map((project) => (
-        <div key={project.id} className="border border-border/50 rounded-md p-4 space-y-3">
-          <h3 className="text-primary font-bold text-base">{project.name}</h3>
-          <p className="text-muted-foreground text-sm">{project.problem}</p>
+        <div
+          key={project.id}
+          className="border border-border/50 rounded-md p-4 space-y-3"
+        >
+          <h3 className="text-primary font-bold text-base">
+            {project.name}
+          </h3>
+          <p className="text-muted-foreground text-sm">
+            {project.problem}
+          </p>
           <div className="flex flex-wrap gap-1">
             {project.techStack.map((tech) => (
               <Badge key={tech} variant="secondary" className="text-xs">
@@ -87,15 +98,15 @@ function ProjectsOutput() {
             ))}
           </div>
           <p className="text-foreground text-sm">
-            <span className="text-primary">Impact:</span> {project.impact}
+            <span className="text-primary">Impact:</span>{" "}
+            {project.impact}
           </p>
           <div className="flex gap-3">
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
-              data-testid={`link-github-${project.id}`}
+              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
             >
               <Github className="h-3 w-3" /> GitHub
             </a>
@@ -104,8 +115,7 @@ function ProjectsOutput() {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
-                data-testid={`link-demo-${project.id}`}
+                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary"
               >
                 <ExternalLink className="h-3 w-3" /> Live Demo
               </a>
@@ -113,9 +123,13 @@ function ProjectsOutput() {
           </div>
         </div>
       ))}
+      <p className="text-muted-foreground text-sm italic mt-4">
+        To explore my other projects, feel free to visit my GitHub profile.
+      </p>
     </div>
   );
 }
+
 
 function SkillsOutput() {
   return (
@@ -123,7 +137,9 @@ function SkillsOutput() {
       <p className="text-primary font-bold">Technical Skills:</p>
       {Object.entries(skillsData).map(([category, skills]) => (
         <div key={category} className="space-y-2">
-          <h3 className="text-foreground font-semibold text-sm">{category}</h3>
+          <h3 className="text-foreground font-semibold text-sm">
+            {category}
+          </h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
               <Badge key={skill} variant="outline" className="text-xs">
@@ -142,7 +158,10 @@ function ExperienceOutput() {
     <div className="space-y-4">
       <p className="text-primary font-bold">Work Experience:</p>
       {experienceData.map((exp) => (
-        <div key={exp.id} className="border-l-2 border-primary/50 pl-4 space-y-2">
+        <div
+          key={exp.id}
+          className="border-l-2 border-primary/50 pl-4 space-y-2"
+        >
           <div>
             <h3 className="text-primary font-bold">{exp.role}</h3>
             <p className="text-muted-foreground text-sm">
@@ -151,7 +170,10 @@ function ExperienceOutput() {
           </div>
           <ul className="space-y-1">
             {exp.responsibilities.map((resp, i) => (
-              <li key={i} className="text-foreground text-sm flex gap-2">
+              <li
+                key={i}
+                className="text-foreground text-sm flex gap-2"
+              >
                 <span className="text-primary">-</span>
                 {resp}
               </li>
@@ -169,8 +191,12 @@ function EducationOutput() {
       <p className="text-primary font-bold">Education:</p>
       {educationData.map((edu) => (
         <div key={edu.id} className="space-y-1">
-          <h3 className="text-primary font-semibold">{edu.degree}</h3>
-          <p className="text-foreground text-sm">{edu.institution}</p>
+          <h3 className="text-primary font-semibold">
+            {edu.degree}
+          </h3>
+          <p className="text-foreground text-sm">
+            {edu.institution}
+          </p>
           <p className="text-muted-foreground text-xs">
             {edu.year} | Focus: {edu.focus}
           </p>
@@ -191,7 +217,9 @@ function CertificationsOutput() {
           </Badge>
           <div>
             <p className="text-foreground text-sm">{cert.name}</p>
-            <p className="text-muted-foreground text-xs">{cert.issuer}</p>
+            <p className="text-muted-foreground text-xs">
+              {cert.issuer}
+            </p>
           </div>
         </div>
       ))}
@@ -202,11 +230,17 @@ function CertificationsOutput() {
 function LeadershipOutput() {
   return (
     <div className="space-y-4">
-      <p className="text-primary font-bold">Leadership & Community:</p>
+      <p className="text-primary font-bold">
+        Leadership & Community:
+      </p>
       {leadershipData.map((item) => (
         <div key={item.id} className="space-y-1">
-          <h3 className="text-primary font-semibold">{item.title}</h3>
-          <p className="text-muted-foreground text-sm">{item.description}</p>
+          <h3 className="text-primary font-semibold">
+            {item.title}
+          </h3>
+          <p className="text-muted-foreground text-sm">
+            {item.description}
+          </p>
         </div>
       ))}
     </div>
@@ -219,31 +253,37 @@ function ContactOutput() {
       <p className="text-primary font-bold">Get In Touch:</p>
       <div className="space-y-3">
         <div className="flex items-center gap-3">
-          <span className="text-muted-foreground w-20">Email:</span>
-          <span className="text-foreground">{profileData.email}</span>
+          <span className="text-muted-foreground w-20">
+            Email:
+          </span>
+          <span className="text-foreground">
+            {profileData.email}
+          </span>
           <CopyButton text={profileData.email} />
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-muted-foreground w-20">GitHub:</span>
+          <span className="text-muted-foreground w-20">
+            GitHub:
+          </span>
           <a
             href={`https://${profileData.github}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline"
-            data-testid="link-github-profile"
           >
             {profileData.github}
           </a>
           <CopyButton text={profileData.github} />
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-muted-foreground w-20">LinkedIn:</span>
+          <span className="text-muted-foreground w-20">
+            LinkedIn:
+          </span>
           <a
             href={`https://${profileData.linkedin}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-primary hover:underline"
-            data-testid="link-linkedin-profile"
           >
             {profileData.linkedin}
           </a>
@@ -259,12 +299,17 @@ function UnknownCommand({ command }: { command: string }) {
     <div className="text-destructive">
       Command not found: {command}
       <br />
-      <span className="text-muted-foreground">Type 'help' for available commands.</span>
+      <span className="text-muted-foreground">
+        Type 'help' for available commands.
+      </span>
     </div>
   );
 }
 
-export default function TerminalOutput({ command }: TerminalOutputProps) {
+// ✅ DEFAULT EXPORT (THIS FIXES YOUR ERROR)
+export default function TerminalOutput({
+  command,
+}: TerminalOutputProps) {
   const cmd = command.toLowerCase().trim();
 
   switch (cmd) {

@@ -1,154 +1,145 @@
-// todo: remove mock functionality - Replace with real portfolio data
-
+// ===============================
+// PROFILE
+// ===============================
 export const profileData = {
-  name: "Alex Chen",
-  title: "Software Engineer",
-  tagline: "AI Enthusiast",
-  bio: `Senior Software Engineer with 6+ years of experience building scalable systems 
-and AI-powered applications. Passionate about machine learning, distributed systems, 
-and creating elegant solutions to complex problems.
+  name: "Katla Sathwik",
+  title: "AI / ML Engineer",
+  tagline: "Fresher | Applied AI & Machine Learning",
 
-Currently focused on LLM applications, computer vision, and MLOps infrastructure.
-Open source contributor and tech community speaker.`,
-  location: "San Francisco, CA",
-  email: "alex.chen@email.dev",
-  github: "github.com/alexchen",
-  linkedin: "linkedin.com/in/alexchen",
+  email: "sathwikreddykatla@gmail.com",
+  github: "github.com/Sathwikreddy018",
+  linkedin: "linkedin.com/in/sathwikreddy018",
+
+  bio: `
+AI / ML Engineer (Fresher) with strong hands-on experience in building
+end-to-end machine learning and deep learning systems.
+
+Skilled in NLP, Computer Vision, and modern AI tooling with a strong
+focus on real-world, production-ready implementations.
+`,
 };
+
+// ===============================
+// COMMAND DESCRIPTIONS
+// ===============================
+export const commandDescriptions: Record<string, string> = {
+  help: "List all available commands",
+  about: "About me and my background",
+  projects: "Showcase of featured projects",
+  skills: "Technical skills and tools",
+  experience: "Work and internship experience",
+  education: "Academic background",
+  certifications: "Professional certifications",
+  leadership: "Leadership and community roles",
+  contact: "Get my contact details",
+  clear: "Clear the terminal",
+};
+
+// ===============================
+// PROJECTS
+// ===============================
+export const projectsNote =
+  "To explore my other projects, feel free to visit my GitHub profile.";
 
 export const projectsData = [
   {
-    id: 1,
-    name: "NeuralSearch",
-    problem: "Enterprise search systems struggle with semantic understanding",
-    techStack: ["Python", "PyTorch", "FastAPI", "Redis", "Docker"],
-    impact: "40% improvement in search relevance, 2M+ queries/day",
-    github: "https://github.com/alexchen/neuralsearch",
-    demo: "https://neuralsearch.demo.dev",
+    id: "plantdoc",
+    name: "PlantDoc",
+    problem: "AI system for detecting plant diseases from leaf images.",
+    techStack: ["TensorFlow", "CNN", "OpenCV", "Flask", "Flutter"],
+    impact: "Achieved 95%+ accuracy for disease classification.",
+    github: "https://github.com/Sathwikreddy018/Plant_Disease_Detection",
+    demo: "",
   },
   {
-    id: 2,
-    name: "MLFlow Pipeline",
-    problem: "ML teams lack standardized deployment workflows",
-    techStack: ["Kubernetes", "Airflow", "MLflow", "Terraform", "Go"],
-    impact: "Reduced deployment time from days to hours for 50+ models",
-    github: "https://github.com/alexchen/mlflow-pipeline",
-    demo: null,
+    id: "careerforge",
+    name: "CareerForge",
+    problem: "AI-driven platform for personalized career roadmaps.",
+    techStack: ["PyTorch", "NLP", "React", "MongoDB"],
+    impact: "Generated AI-based learning paths for users.",
+    github: "https://github.com/Sathwikreddy018/job-aplication-agent",
+    demo: "",
   },
   {
-    id: 3,
-    name: "VisionAPI",
-    problem: "Real-time image processing at scale is expensive",
-    techStack: ["Rust", "ONNX", "gRPC", "AWS Lambda", "S3"],
-    impact: "70% cost reduction, 10ms average latency",
-    github: "https://github.com/alexchen/visionapi",
-    demo: "https://visionapi.demo.dev",
-  },
-  {
-    id: 4,
-    name: "ChatOps Bot",
-    problem: "DevOps tasks require context switching to multiple tools",
-    techStack: ["TypeScript", "Node.js", "OpenAI", "Slack API", "PostgreSQL"],
-    impact: "Automated 60% of routine DevOps queries for team of 30",
-    github: "https://github.com/alexchen/chatops",
-    demo: null,
+    id: "bargainbot",
+    name: "BargainBot",
+    problem: "LLM-based chatbot for automated price negotiation.",
+    techStack: ["Transformers", "LangChain", "Docker"],
+    impact: "Demonstrated real-time AI negotiation workflows.",
+    github: "https://github.com/Sathwikreddy018/Bargain-Bot",
+    demo: "",
   },
 ];
 
-export const skillsData = {
-  Languages: ["Python", "TypeScript", "Go", "Rust", "SQL"],
-  Frameworks: ["FastAPI", "React", "Node.js", "Django", "gRPC"],
-  "AI/ML": ["PyTorch", "TensorFlow", "LangChain", "Hugging Face", "OpenAI"],
-  Infrastructure: ["Kubernetes", "Docker", "Terraform", "AWS", "GCP"],
-  Tools: ["Git", "Linux", "PostgreSQL", "Redis", "Kafka"],
+
+// ===============================
+// SKILLS
+// ===============================
+export const skillsData: Record<string, string[]> = {
+  "Programming Languages": ["Python", "JavaScript","C","C++"],
+  "Machine Learning": ["PyTorch", "TensorFlow", "Scikit-learn"],
+  "AI Domains": ["NLP", "Computer Vision", "LLMs","Deep Learning"],
+  "Backend & APIs": ["FastAPI", "Flask","Node.js"],
+  "Frontend": ["React", "Tailwind CSS","JavaScript","TypeScript"],
+  "Tools & Platforms": ["Docker", "Git", "Linux","VS Code","Jupyter Notebook"],
 };
 
+// ===============================
+// EXPERIENCE (FRESHER)
+// ===============================
 export const experienceData = [
   {
-    id: 1,
-    role: "Senior Software Engineer",
-    company: "TechCorp AI",
-    period: "2022 - Present",
+    id: "Fresher",
+    role: "AI & ML",
+    company: "Self Projects & Academic Work",
+    period: "2023 – Present",
     responsibilities: [
-      "Lead ML infrastructure team of 5 engineers",
-      "Architected real-time inference platform serving 10M+ predictions/day",
-      "Reduced model training costs by 45% through optimization",
-    ],
-  },
-  {
-    id: 2,
-    role: "Software Engineer II",
-    company: "DataFlow Systems",
-    period: "2019 - 2022",
-    responsibilities: [
-      "Built distributed data pipelines processing 500TB+ daily",
-      "Implemented feature store reducing ML experiment time by 60%",
-      "Mentored 3 junior engineers",
-    ],
-  },
-  {
-    id: 3,
-    role: "Software Engineer",
-    company: "StartupX",
-    period: "2018 - 2019",
-    responsibilities: [
-      "Full-stack development for B2B SaaS platform",
-      "Designed REST APIs serving 100K+ users",
-      "Integrated third-party ML services for analytics",
+      "Designed and trained ML/DL models",
+      "Built end-to-end AI pipelines",
+      "Integrated models into web applications",
     ],
   },
 ];
 
+// ===============================
+// EDUCATION
+// ===============================
 export const educationData = [
   {
-    id: 1,
-    degree: "M.S. Computer Science",
-    institution: "Stanford University",
-    year: "2018",
-    focus: "Machine Learning & Distributed Systems",
+    id: "btech",
+    degree: "B.Tech in Electronics and Communication Engineering",
+    institution: "Vaagdevi Engineering College",
+    year: "2021 – 2025",
+    focus: "Artificial Intelligence & Machine Learning",
+  },
+];
+
+// ===============================
+// CERTIFICATIONS (THIS FIXES YOUR ERROR)
+// ===============================
+export const certificationsData = [
+  {
+    id: "ml-cert",
+    name: "Machine Learning Specialization",
+    issuer: "Online Platform",
+    year: "2023",
   },
   {
-    id: 2,
-    degree: "B.S. Computer Science",
-    institution: "UC Berkeley",
-    year: "2016",
-    focus: "Algorithms & Systems",
+    id: "dl-cert",
+    name: "Deep Learning Certification",
+    issuer: "Online Platform",
+    year: "2023",
   },
 ];
 
-export const certificationsData = [
-  { id: 1, name: "AWS Solutions Architect Professional", issuer: "Amazon", year: "2023" },
-  { id: 2, name: "Google Cloud ML Engineer", issuer: "Google", year: "2022" },
-  { id: 3, name: "Kubernetes Administrator (CKA)", issuer: "CNCF", year: "2021" },
-];
-
+// ===============================
+// LEADERSHIP
+// ===============================
 export const leadershipData = [
   {
-    id: 1,
-    title: "Tech Lead - ML Platform",
-    description: "Leading cross-functional team building next-gen ML infrastructure",
-  },
-  {
-    id: 2,
-    title: "Open Source Maintainer",
-    description: "Maintaining popular ML tooling library with 5K+ GitHub stars",
-  },
-  {
-    id: 3,
-    title: "Conference Speaker",
-    description: "Regular speaker at MLOps World, KubeCon, and local meetups",
+    id: "project-lead",
+    title: "AI Project Lead",
+    description:
+      "Led multiple AI/ML project implementations and peer collaborations.",
   },
 ];
-
-export const commandDescriptions: Record<string, string> = {
-  help: "Show available commands",
-  about: "Learn about me",
-  projects: "View my featured projects",
-  skills: "See my technical skills",
-  experience: "View work history",
-  education: "Academic background",
-  certifications: "Professional credentials",
-  leadership: "Leadership experience",
-  contact: "Get in touch",
-  clear: "Clear terminal",
-};
